@@ -10,6 +10,7 @@
       ],
       "extends": [
         "eslint:recommended",
+        "plugin:@ngrx/strict-requiring-type-checking",
         "plugin:@typescript-eslint/recommended",
         "plugin:@angular-eslint/recommended",
         "plugin:@angular-eslint/template/process-inline-templates",
@@ -20,7 +21,10 @@
           "error",
           {
             "type": "attribute",
-            "prefix": "app",
+            "prefix": [
+              "app",
+              "mc"
+            ],
             "style": "camelCase"
           }
         ],
@@ -28,7 +32,10 @@
           "error",
           {
             "type": "element",
-            "prefix": "app",
+            "prefix": [
+              "app",
+              "mc"
+            ],
             "style": "kebab-case"
           }
         ]
