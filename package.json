@@ -39,7 +39,7 @@
     "@angular/compiler-cli": "^15.0.0",
     "@commitlint/cli": "^17.3.0",
     "@commitlint/config-conventional": "^17.3.0",
-    "@ngrx/eslint-plugin": "^15.0.0",
+    "@ngrx/eslint-plugin": "^15.1.0",
     "@types/jasmine": "~4.3.0",
     "@typescript-eslint/eslint-plugin": "5.46.1",
     "@typescript-eslint/parser": "5.44.0",
