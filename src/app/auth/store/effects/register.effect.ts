@@ -11,6 +11,9 @@ import {
   loginSuccessAction,
   loginAction,
   loginFailureAction,
+  getCurrentUserAction,
+  getCurrentUserSuccessAction,
+  getCurrentUserFailureAction,
 } from '../actions/actions'
 import {PersistanceService} from '../../services/persistance.service'
 import {Router} from '@angular/router'
@@ -54,6 +57,24 @@ export class RegisterEffect {
           }),
           catchError((errorRespone: HttpErrorResponse) => {
             return of(loginFailureAction({errors: errorRespone.error.errors}))
+          })
+        )
+      })
+    )
+  })
+
+  getCurrentUser$ = createEffect(() => {
+    return this.actions$.pipe(
+      ofType(getCurrentUserAction),
+      switchMap(() => {
+        const token = this.persistanceService.get('acessToken')
+        if (!token) return of(getCurrentUserFailureAction())
+        return this.authService.getCurrentUser().pipe(
+          map((currentUser: CurrentUserInterface) => {
+            return getCurrentUserSuccessAction({currentUser})
+          }),
+          catchError(() => {
+            return of(getCurrentUserFailureAction())
           })
         )
       })

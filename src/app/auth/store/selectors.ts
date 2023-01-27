@@ -13,3 +13,18 @@ export const selectValidationErrors = createSelector(
   selectAuthFeature,
   (autState: AuthStateInterface) => autState.validationErrors
 )
+
+export const selectIsLoggedIn = createSelector(
+  selectAuthFeature,
+  (autState: AuthStateInterface) => autState.isLoggedIn
+)
+
+export const selectIsAnonymous = createSelector(
+  selectAuthFeature,
+  (autState: AuthStateInterface) => autState.isLoggedIn === false
+)
+
+export const selectCurrentUser = createSelector(
+  selectAuthFeature,
+  (autState: AuthStateInterface) => autState.currentUser
+)
